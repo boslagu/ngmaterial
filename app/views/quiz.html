@@ -20,6 +20,7 @@
      </div>
      <div ng-controller="QuizCtrl">
        <content>
+         <div  ng-hide="hidePlayBtn">
          <div ng-hide="contents">
            <div class="row"><span>Select a Category</span>
              <select ng-model="category" placeholder="Category">
@@ -50,9 +51,12 @@
              </select>
            </div>
          </div>
-         <button ng-click="showAlert($event); hideContents; checkQuestion()" ng-hide="hidePlayBtn">Play</button>
-         <button ng-click="showQuestion()" ng-show="start">Start</button>
-         <p ng-show="noResponse" class="noResponse">No questions available</p>
+         <button ng-click="showAlert($event); hideContents; checkQuestion()" ng-hide = "hideThisBtn">Play</button>
+       </div>
+         <p ng-show = "loadingQuestions">Please wait while loading your questions.</p>
+         <button ng-click="showQuestion()" ng-show="start">{{showLevel}}</button>
+         <p ng-show="noResponse" class="noResponse">No questions available.</p>
+         <button ng-show = "noResponse" ng-click = "backToPlay()">OK</button>
          <div ng-show="open">
            <ul ng-repeat="trivia in trivias | limitTo: 5">
              <div>{{trivia.question}}</div>
