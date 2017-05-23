@@ -40,50 +40,53 @@ angular
                   }
                 }
             })
-            .state('app.main', {
-                url: '/main',
+            .state('app.home', {
+                url: '/home',
                 views: {
                     'menuContent': {
-                        templateUrl: 'views/main.html',
-                        controller: 'MainCtrl'
+                        templateUrl: 'views/home.html',
+                        controller: 'HomeCtrl'
                     }
                 }
             })
-            .state('app.page', {
-                url: '/page',
+            .state('app.developer', {
+                url: '/developer',
                 views: {
                     'menuContent': {
-                        templateUrl: 'views/page.html',
-                        controller: 'PageCtrl'
+                        templateUrl: 'views/developer.html',
+                        controller: 'DeveloperCtrl'
                     }
                 }
             })
-            .state('app.other', {
-                url: '/other',
+            .state('app.quiz', {
+                url: '/quiz',
                 views: {
                     'menuContent': {
-                        templateUrl: 'views/other.html',
-                        controller: 'OtherCtrl'
+                        templateUrl: 'views/quiz.html',
+                        controller: 'QuizCtrl'
                     }
                 }
             })
         ;
 
-        $urlRouterProvider.otherwise('/app/main');
+        $urlRouterProvider.otherwise('/app/home');
     })
     .controller('AppCtrl', ['$scope', '$location', '$mdSidenav', '$mdToast', AppCtrl]);
 
 function AppCtrl($scope, $location, $mdSidenav, $mdToast) {
     $scope.goHome = function () {
-        $location.path('/app/main');
+        $location.path('/app/home');
+        $scope.menuTitle = 'Home';
     };
 
     $scope.goPage = function () {
-        $location.path('/app/page');
+        $location.path('/app/developer');
+        $scope.menuTitle = 'Developer';
     };
 
     $scope.goOther = function () {
-        $location.path('/app/other');
+        $location.path('/app/quiz');
+        $scope.menuTitle = 'Quiz';
     };
 
     $scope.toggleSidenav = function () {

@@ -7,6 +7,6 @@
  * # MainCtrl
  * Controller of the ngmaterialApp
  */
-angular.module('ngmaterialApp').controller('MainCtrl', function($scope) {
+angular.module('ngmaterialApp').controller('HomeCtrl', function($scope) {
   $scope.page = 'MAIN PAGE';
 });
